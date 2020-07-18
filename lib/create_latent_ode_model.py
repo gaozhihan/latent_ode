@@ -89,7 +89,7 @@ def create_LatentODE_model(args, input_dim, z0_prior, obsrv_std, device,
 		input_dim = gen_data_dim, 
 		latent_dim = args.latents, 
 		encoder_z0 = encoder_z0, 
-		decoder = decoder, 
+		decoder = decoder, # MLP, from z to data space
 		diffeq_solver = diffeq_solver, 
 		z0_prior = z0_prior, 
 		device = device,
