@@ -261,7 +261,7 @@ if __name__ == '__main__':
 			kl_coef = (1-0.99** (itr // num_batches - wait_until_kl_inc))
 
 		batch_dict = utils.get_next_batch(data_obj["train_dataloader"])
-		train_res = model.compute_all_losses(batch_dict, n_traj_samples = 3, kl_coef = kl_coef)
+		train_res = model.compute_all_losses(batch_dict, n_traj_samples = 3, kl_coef = kl_coef) # for each elem in a batch, sample 3 trajectories from the same encoded posterior q(z|x)
 		train_res["loss"].backward()
 		optimizer.step()
 
