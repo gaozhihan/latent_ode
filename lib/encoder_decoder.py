@@ -269,7 +269,7 @@ class Encoder_z0_ODE_RNN(nn.Module):
 			time_points_iter = reversed(time_points_iter)
 
 		for i in time_points_iter:
-			if (prev_t - t_i) < minimum_step:
+			if (prev_t - t_i) < minimum_step: # because z0_diffeq_solver is using "euler", whose step size is fixed
 				time_points = torch.stack((prev_t, t_i))
 				inc = self.z0_diffeq_solver.ode_func(prev_t, prev_y) * (t_i - prev_t)
 
